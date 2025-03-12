@@ -56,7 +56,7 @@ if ($activateInheritance -eq "Yes") {
             $acl.SetAccessRuleProtection($false, $true)
 
             # Apply modified ACL back
-            Set-Acl -Path $folder -AclObject $acl
+             Set-Acl -LiteralPath "\\?\$folder" -AclObject $acl
 
             Write-Host "Activated inheritance for: $folder" -ForegroundColor Green
         } catch {
